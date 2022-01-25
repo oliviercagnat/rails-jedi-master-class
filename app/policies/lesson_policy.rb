@@ -3,6 +3,7 @@ class LessonPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
     def create?
       user.status == "Jedi"
@@ -23,5 +24,4 @@ class LessonPolicy < ApplicationPolicy
     def destroy?
       user.status == "Jedi"
     end
-  end
 end
