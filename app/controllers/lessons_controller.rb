@@ -1,14 +1,19 @@
 class LessonsController < ApplicationController
+
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   def index
     @lessons = Lesson.all
   end
-
-  def show
+  
+  def new
+    @lesson = Lesson.new
   end
 
-  def new
+  def show
+    #find the jedi class /lessons/id =>ID comes from the params
+    # store in an @ variable
+    @booking = Booking.new
   end
 
   def edit
