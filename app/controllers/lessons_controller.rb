@@ -16,7 +16,7 @@ class LessonsController < ApplicationController
     #find the jedi class /lessons/id =>ID comes from the params
     # store in an @ variable
     @booking = Booking.new
-     lesson_policy_authorize
+    lesson_policy_authorize
   end
 
   def edit
