@@ -1,17 +1,24 @@
 class LessonsController < ApplicationController
+
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   def index
     @lessons = Lesson.all
     @lessons = policy_scope(Lesson)
   end
-
-  def show
-    lesson_policy_authorize
+  
+  def new
+    @lesson = Lesson.new
+     lesson_policy_authorize
   end
 
-  def new
-    lesson_policy_authorize
+  def show
+    #find the jedi class /lessons/id =>ID comes from the params
+    # store in an @ variable
+    @booking = Booking.new
+     lesson_policy_authorize
+  end
+
   end
 
   def edit
