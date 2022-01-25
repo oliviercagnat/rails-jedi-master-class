@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
     @lessons = Lesson.all
     @lessons = policy_scope(Lesson)
   end
-  
+
   def new
     @lesson = Lesson.new
      lesson_policy_authorize
@@ -17,8 +17,6 @@ class LessonsController < ApplicationController
     # store in an @ variable
     @booking = Booking.new
      lesson_policy_authorize
-  end
-
   end
 
   def edit
