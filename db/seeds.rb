@@ -9,7 +9,7 @@ puts "Creating lessons..."
     email: Faker::Internet.email,
     password: "1234567890",
     name: Faker::Movies::StarWars.character,
-    side: ["Light", "Obscure"].sample,
+    side: ["Light", "Dark"].sample,
     status: "Jedi",
     description: Faker::Movies::StarWars.wookiee_sentence
   )
