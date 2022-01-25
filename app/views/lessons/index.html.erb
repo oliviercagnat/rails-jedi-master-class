@@ -1,0 +1,19 @@
+<h1>All our <%= Lesson.count %> lessons</h1>
+
+<div class="row">
+  <% @lessons.each do |lesson| %>
+    <div class="col-4">
+      <div class="lesson-card">
+        <div class="lesson-card-skill-name">
+          <h4><%= lesson.skill_name %></h4>
+        </div>
+        <p><% lesson.description %></p>
+        <div class="flex">
+        <p>Price: <% lesson.price %></p>
+        <p>Starting time: <% lesson.start_at %></p>
+        <p>Ending time: <% lesson.end_at %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
