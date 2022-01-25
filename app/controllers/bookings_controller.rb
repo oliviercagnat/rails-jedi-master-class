@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  end
 
     def destroy
       @booking = Booking.find(params[:id])
