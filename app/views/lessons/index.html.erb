@@ -13,7 +13,7 @@
         <p>Starting time: <% lesson.start_at %></p>
         <p>Ending time: <% lesson.end_at %></p>
         <% if policy(Lesson).create? %>
-          <%= link_to "New lesson", new_lesson_booking_path %>
+          <%= link_to "New lesson", new_lesson_path %>
         <% end %>
         </div>
       </div>
