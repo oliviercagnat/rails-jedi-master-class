@@ -7,11 +7,11 @@
         <div class="lesson-card-skill-name">
           <h4><%= lesson.skill_name %></h4>
         </div>
-        <p><% lesson.description %></p>
+        <p><%= lesson.description %></p>
         <div class="flex">
-        <p>Price: <% lesson.price %></p>
-        <p>Starting time: <% lesson.start_at %></p>
-        <p>Ending time: <% lesson.end_at %></p>
+        <p>Price: <%= lesson.price %></p>
+        <p>Starting time: <%= lesson.start_at %></p>
+        <p>Ending time: <%= lesson.end_at %></p>
         <% if policy(Lesson).create? %>
           <%= link_to "New lesson", new_lesson_booking_path %>
         <% end %>
