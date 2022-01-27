@@ -6,11 +6,9 @@
       <div class="lesson-card">
         <div class="lesson-card-skill-name">
           <h4><%= lesson.skill_name %></h4>
-          <p>Taught by:
           <% if lesson.user.status == "Jedi" %>
-            <p><%= lesson.user.name %>, <%= lesson.user.side %> side</p>
+             <p>Taught by:<%= lesson.user.name %>, <%= lesson.user.side %> side</p>
           <% end %>
-          </p>
         </div>
         <p><%= lesson.description %></p>
         <div class="flex">
