@@ -17,6 +17,10 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.collection_radio_buttons :status, [[true, 'Jedi'], [false, 'Padawan']], :first, :last  %> <br>
     <%= f.collection_radio_buttons :side, [[true, 'Light'], [false, 'Dark']], :first, :last  %>
+    <%# still need to fix this, doesn't upload on Cloudinary %>
+    <%# get registered as file, but in our Seed :avatar is a string, maybe have to explore this %>
+    <%= f.input :avatar, as: :file %>
+
   </div>
 
   <div class="form-actions">
