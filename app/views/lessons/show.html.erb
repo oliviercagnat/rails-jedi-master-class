@@ -5,5 +5,5 @@
 
 <% #check with teacher why this policy authorization isnt working. The link isnt showing in the view.  %>
 <% if policy(Booking).create? %>
-  <%= link_to "Book now!", new_lesson_booking_path(@lesson) %>
+  <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post" %>
 <% end %>
