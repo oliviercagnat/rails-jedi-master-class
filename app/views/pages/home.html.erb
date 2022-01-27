@@ -1,3 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "See all lessons", lessons_path  %>
+<div class="container-fluid">
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+<div>
+  <h1>Your Next Step to become a
+  <%= current_user.side == "Light"? "Jedi" : "Sith" %>
+  </h1>
+  <p>Welcome <%= current_user.name %></p>
+
+  <h2>Our next classes</h2>
+  <div class="row justify-content-around">
+    <% @lessons.each do |lesson| %>
+      <div class="card col-4" style="width: 18rem;">
+        <%# <%= image_tag lesson.photo, alt: "skill" %>
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= lesson.skill_name %></h5>
+          <p class="card-text"><%= lesson.description %></p>
+          <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
+          <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
+        </div>
+      </div>
+    <% end  %>
+  </div>
+  <%= link_to "See all lessons", lessons_path, class:"btn btn-light" %>
+</div>
+</div>
