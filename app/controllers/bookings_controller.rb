@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
       authorize @booking
     end
 
-    # def booking_params
-    #   params.require(:booking).permit(:lesson_id)
-    # end
+     def booking_params
+       params.require(:booking).permit(:user_id, :lesson_id)
+     end
 end
