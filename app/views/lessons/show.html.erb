@@ -1,9 +1,33 @@
-<h1>This is the show page</h1>
-
-<%= @lesson.description %>
 
 
-<% #check with teacher why this policy authorization isnt working. The link isnt showing in the view.  %>
-<% if policy(Booking).create? %>
-  <%= link_to "Book now!", new_lesson_booking_path(@lesson) %>
-<% end %>
+<div class ="container">
+  <h1><%= @lesson.skill_name %></h1>
+    <% if @lesson.user.status == "Jedi" %>
+    <h3>Taught by: <%= @lesson.user.name %>, <%= @lesson.user.side %> side</h3>
+    <% end %>
+    <p>
+      <%= @lesson.description %>
+    </p>
+
+    <div class="flex">
+      <p>Price: <%= @lesson.price %> Imperial Credits</p>
+      <p>Starting time: <%= @lesson.start_at %></p>
+      <p>Ending time: <%= @lesson.end_at %></p>
+      <div class="btn btn-primary">
+        <%= link_to "Return", lessons_path, :class => "btn"  %>
+      </div>
+      <div class="btn btn-primary">
+        <%= link_to "Book Now!", new_lesson_booking_path(@lesson), :class => "btn" %>
+      </div>
+  </div>
+
+  <% if policy(Booking).create? %>
+    <%= link_to "Book now!", new_lesson_booking_path(@lesson) %>
+  <% end %>
+
+</div>
+
+
+<%# # details for lesson
+# description, start time, teacher, avalible, time, price, skill name
+# booking option and return option   %>
