@@ -13,19 +13,20 @@
   <p>Welcome <%= current_user.name %></p>
 
   <h2>Our next classes</h2>
-  <% @lessons.each do |lesson| %>
-    <div class="row">
-      <div class="card col-3" style="width: 18rem;">
+  <div class="row justify-content-around">
+    <% @lessons.each do |lesson| %>
+      <div class="card col-4" style="width: 18rem;">
+        <%# <%= image_tag lesson.photo, alt: "skill" %>
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= lesson.skill_name %></h5>
           <p class="card-text"><%= lesson.description %></p>
           <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
-          <%= link_to "Book", lessons_path(:lesson_id), class:"btn btn-light"  %>
+          <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
         </div>
       </div>
-    </div>
-  <% end  %>
-  <%= link_to "See all lessons", lessons_path  %>
+    <% end  %>
+  </div>
+  <%= link_to "See all lessons", lessons_path, class:"btn btn-light" %>
 </div>
 </div>
