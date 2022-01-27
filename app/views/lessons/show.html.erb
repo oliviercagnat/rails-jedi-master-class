@@ -8,7 +8,6 @@
     <p>
       <%= @lesson.description %>
     </p>
-
     <div class="flex">
       <p>Price: <%= @lesson.price %> Imperial Credits</p>
       <p>Starting time: <%= @lesson.start_at %></p>
@@ -17,17 +16,15 @@
         <%= link_to "Return", lessons_path, :class => "btn"  %>
       </div>
       <div class="btn btn-primary">
-        <%= link_to "Book Now!", new_lesson_booking_path(@lesson), :class => "btn" %>
+        <% if policy(Booking).create? %>
+          <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post" %>
+        <% end %>
       </div>
   </div>
-
-  <% if policy(Booking).create? %>
-    <%= link_to "Book now!", new_lesson_booking_path(@lesson) %>
-  <% end %>
-
 </div>
 
 
 <%# # details for lesson
 # description, start time, teacher, avalible, time, price, skill name
 # booking option and return option   %>
+
