@@ -15,11 +15,24 @@
   <h2>Our next classes</h2>
   <div class="row justify-content-around">
     <% @lessons.each do |lesson| %>
+    <div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= lesson.skill_name %> (<%= (lesson.end_at - lesson.start_at).to_i %> days)</h2>
+      <p><%= lesson.quick_description %></p>
+      <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
+    </div>
+    <h2 class="card-trip-pricing"><%= lesson.price %>Imperial Credits</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
       <div class="card col-4" style="width: 18rem;">
         <%# <%= image_tag lesson.photo, alt: "skill" %>
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title"><%= lesson.skill_name %></h5>
+          <h5 class="card-title"><%= lesson.skill_name %> </h5>
           <p class="card-text"><%= lesson.quick_description %></p>
           <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
           <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
