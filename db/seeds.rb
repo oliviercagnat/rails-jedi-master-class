@@ -1,4 +1,4 @@
-require 'rest_client'
+
 
 puts "Cleaning DB..."
 Booking.destroy_all
@@ -14,6 +14,17 @@ puts "Creating lessons..."
     status: "Jedi",
     description: Faker::Movies::StarWars.wookiee_sentence
   )
+
+   User.create!(
+    email: "padawan@st.com",
+    password: "123456",
+    name: Faker::Movies::StarWars.character,
+    side: ["Light", "Dark"].sample,
+    status: "Padawan",
+    description: Faker::Movies::StarWars.wookiee_sentence
+  )
+
+
 5.times do
   user = User.create!(
     email: Faker::Internet.email,
@@ -53,6 +64,8 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
   #       'text' => "#{skill_name} lesson is",
   #   }
   # )
+  unsplash_url = "http://source.unsplash.com/1600x900/?superpower"
+
   start_at = Date.current + rand(10).days
   lesson = Lesson.create!(
     user: User.all.sample,
@@ -60,7 +73,8 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
     description: skill_description.sample,
     start_at: start_at,
     end_at: start_at + rand(1..3).days,
-    price: rand(20_000..40_000)
+    price: rand(20_000..40_000),
+    skill_picture: "#{unsplash_url}"
   )
   puts "Lesson #{lesson.id} is created"
 end

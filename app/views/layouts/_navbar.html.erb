@@ -1,7 +1,20 @@
-  <nav class="navbar navbar-light bg-light">
-    <%= link_to "Homepage", root_path, class: "btn btn-primary navbar-brand"  %>
-    <form class="form-inline d-flex">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </nav>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to "Home", root_path, class: "btn-outline-light m-2 p-3 navbar-brand"  %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to "Lessons", lessons_path, class: "btn-outline-light nav-link"  %>
+        <%= link_to "Profile", pages_user_profile_path, class: "btn-outline-light nav-link "%>
+        <%= link_to "Log out", destroy_user_session_path, class: "btn-outline-light nav-link", method: "delete" %>
+      </div>
+    </div>
+      <form class="form-inline d-flex">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+  </div>
+</nav>
+

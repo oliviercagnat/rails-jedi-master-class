@@ -10,14 +10,10 @@
       <p>Price: <%= @lesson.price %> Imperial Credits</p>
       <p>Starting time: <%= @lesson.start_at %></p>
       <p>Ending time: <%= @lesson.end_at %></p>
-      <div class="btn btn-primary">
-        <%= link_to "Return", lessons_path, class: "btn"  %>
-      </div>
-      <div class="btn btn-primary">
-        <% if policy(Booking).create? %>
-          <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post" %>
-        <% end %>
-      </div>
+      <%= link_to "Return", lessons_path, class: "btn btn-primary"  %>
+      <% if policy(Booking).create? %>
+        <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "btn btn-primary" %>
+      <%  end %>
   </div>
 </div>
 

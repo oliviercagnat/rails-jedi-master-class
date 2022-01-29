@@ -9,7 +9,7 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
-     authorize @lesson
+    authorize @lesson
   end
 
   def show
@@ -46,6 +46,6 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:skill_name, :description, :price, :start_at, :end_at)
+    params.require(:lesson).permit(:skill_name, :description, :price, :start_at, :end_at, :skill_picture)
   end
 end
