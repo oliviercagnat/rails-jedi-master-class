@@ -1,4 +1,5 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url( <%= image_path("banner") %>);">
+
+<div class="banner mb-2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url( <%= image_path("banner") %>);">
   <div class="container">
      <h1>Your Next Step to become a
     <%= current_user.side == "Light"? "Jedi" : "Sith" %>
@@ -6,34 +7,23 @@
     <p>Welcome <%= current_user.email %> <%= current_user.name %></p>
   </div>
 </div>
-
-
 <div class="container-fluid">
-  <div>
-    <h1>Your Next Step to become a
-    <%= current_user.side == "Light"? "Jedi" : "Sith" %>
-    </h1>
-    <p>Welcome <%= current_user.email %> <%= current_user.name %></p>
-    <% if current_user.avatar.attached? %>
-      <%= cl_image_tag current_user.avatar.key, height: 150, width: 200, crop: :fill %>
-    <% end %>
-
-  <h2>Our next classes</h2>
-  <div class="row justify-content-around">
+  <div class="d-flex">
+    <h2 class="mt-4">Our next classes</h2>
+    <%= link_to "See all lessons", lessons_path, class:"btn btn-primary m-4" %>
+  </div>
+  <div class="row justify-content-between">
     <% @lessons.each do |lesson| %>
-      <div class="card col-4" style="width: 18rem;">
+      <div class="card col-4 m-4" style="width: 18rem;">
         <%= image_tag lesson.skill_picture, alt: "skill picture" %>
 
         <div class="card-body">
           <h5 class="card-title"><%= lesson.skill_name %></h5>
           <p class="card-text"><%= lesson.description.truncate(200) %></p>
           <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
-          <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
+          <%= link_to "See more", lesson_path(lesson), class:"btn btn-success"  %>
         </div>
       </div>
     <% end  %>
-  </div>
-  <div class="text-center">
-  <%= link_to "See all lessons", lessons_path, class:"btn btn-light mt-4" %>
   </div>
 </div>
