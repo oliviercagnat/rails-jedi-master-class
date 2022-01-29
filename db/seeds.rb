@@ -11,6 +11,17 @@ puts "Creating lessons..."
     status: "Jedi",
     description: Faker::Movies::StarWars.wookiee_sentence
   )
+
+   User.create!(
+    email: "padawan@st.com",
+    password: "123456",
+    name: Faker::Movies::StarWars.character,
+    side: ["Light", "Dark"].sample,
+    status: "Padawan",
+    description: Faker::Movies::StarWars.wookiee_sentence
+  )
+
+
 5.times do
   user = User.create!(
     email: Faker::Internet.email,
