@@ -1,0 +1,8 @@
+<h1>You booked  <%= @lesson.skill_name %></h1>
+<h4>with <%= @lesson.user.name %></h4>
+<h3>Its from <%= @lesson.start_at %> until <%= @lesson.end_at %></h3>
+
+<%= link_to "Book another lesson", lessons_path  %>
+
+
+<%= link_to "See all your classes!", pages_user_profile_path  %>

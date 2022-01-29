@@ -2,7 +2,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     booking_policy_authorize
-    @lesson = Lesson.find(params[:lesson_id])
   end
 
   def create
@@ -11,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.lesson = @lesson
     @booking.user = current_user
     if @booking.save
-      redirect_to lesson_path(@lesson)
+      redirect_to lesson_booking_path(@lesson, @booking)
       flash[:notice]="Lesson booked!!"
     else
       render :new
@@ -19,12 +18,18 @@ class BookingsController < ApplicationController
     booking_policy_authorize
   end
 
-    def destroy
-      @booking = Booking.find(params[:id])
-      @booking.destroy
-      redirect_to lesson_path(@booking.lesson)
-      booking_policy_authorize
-    end
+  def show
+    @lesson = Lesson.find(params[:lesson_id])
+    @booking = Booking.find(params[:id])
+    booking_policy_authorize
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to lesson_path(@booking.lesson)
+    booking_policy_authorize
+  end
 
     private
 
@@ -32,7 +37,7 @@ class BookingsController < ApplicationController
       authorize @booking
     end
 
-    # def booking_params
-    #   params.require(:booking).permit(:lesson_id)
-    # end
+    def booking_params
+      params.require(:booking).permit(:user_id, :lesson_id)
+    end
 end
