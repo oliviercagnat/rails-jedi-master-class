@@ -6,7 +6,7 @@
     </h1>
     <p>Welcome <%= current_user.email %> <%= current_user.name %></p>
     <% if current_user.avatar.attached? %>
-      <%= cl_image_tag current_user.avatar.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag current_user.avatar.key, height: 150, width: 200, crop: :fill %>
     <% end %>
 
   <h2>Our next classes</h2>
@@ -14,13 +14,12 @@
     <% @lessons.each do |lesson| %>
       <div class="card col-4" style="width: 18rem;">
         <%= image_tag lesson.skill_picture, alt: "skill picture" %>
-    
+
         <div class="card-body">
           <h5 class="card-title"><%= lesson.skill_name %></h5>
           <p class="card-text"><%= lesson.description.truncate(200) %></p>
           <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
           <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
-
         </div>
       </div>
     <% end  %>

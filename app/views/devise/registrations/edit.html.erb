@@ -21,6 +21,10 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :name %>
+    <%= f.collection_radio_buttons :status, [[true, 'Jedi'], [false, 'Padawan']], :first, :last  %> <br>
+    <%= f.collection_radio_buttons :side, [[true, 'Light'], [false, 'Dark']], :first, :last  %>
+    <%= f.input :avatar, as: :file %>
   </div>
 
   <div class="form-actions">
