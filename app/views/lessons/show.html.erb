@@ -8,7 +8,7 @@
 <div class ="container">
 
     <% if @lesson.user.status == "Jedi" %>
-    <h3>Taught by: <%= @lesson.user.name %>, <%= @lesson.user.side %> side</h3>
+    <h3 class=mt-2 >Taught by: <%= @lesson.user.name %>, <%= @lesson.user.side %> side</h3>
     <% end %>
     <p>
       <%= @lesson.description %>
