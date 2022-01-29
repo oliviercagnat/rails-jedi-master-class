@@ -35,6 +35,7 @@ gem 'pundit'
 
 gem 'devise'
 gem 'faker'
+gem 'rest-client'
 
 group :development, :test do
   gem 'pry-byebug'
