@@ -41,6 +41,7 @@ puts "Finished!"
 puts "Creating lessons..."
 
 5.times do
+  unsplash_url = "http://source.unsplash.com/1600x900/?superpower"
   skill_name = Faker::Superhero.power
   r = RestClient::Request.execute(method: :post, url: 'https://api.deepai.org/api/text-generator', timeout: 600,
     headers: {'api-key' => '627f84fd-c139-46b4-88f9-7d07de412bad'},
@@ -48,14 +49,18 @@ puts "Creating lessons..."
         'text' => "#{skill_name} lesson is",
     }
   )
+  
   start_at = Date.current + rand(10).days
   lesson = Lesson.create!(
     user: User.all.sample,
     skill_name: skill_name,
+
     description: r["output"],
+
     start_at: start_at,
     end_at: start_at + rand(1..3).days,
-    price: rand(20_000..40_000)
+    price: rand(20_000..40_000),
+    skill_picture: "#{unsplash_url}"
   )
   puts "Lesson #{lesson.id} is created"
 end
