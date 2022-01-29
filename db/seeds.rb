@@ -1,4 +1,7 @@
+require 'rest_client'
+
 puts "Cleaning DB..."
+Booking.destroy_all
 Lesson.destroy_all
 User.destroy_all
 
@@ -37,12 +40,19 @@ puts "Finished!"
 
 puts "Creating lessons..."
 
-10.times do
+5.times do
+  skill_name = Faker::Superhero.power
+  r = RestClient::Request.execute(method: :post, url: 'https://api.deepai.org/api/text-generator', timeout: 600,
+    headers: {'api-key' => '627f84fd-c139-46b4-88f9-7d07de412bad'},
+    payload: {
+        'text' => "#{skill_name} lesson is",
+    }
+  )
   start_at = Date.current + rand(10).days
   lesson = Lesson.create!(
     user: User.all.sample,
-    skill_name: Faker::Superhero.power,
-    description: Faker::Lorem.paragraph(sentence_count: 30, supplemental: false, random_sentences_to_add: 6),
+    skill_name: skill_name,
+    description: r["output"],
     start_at: start_at,
     end_at: start_at + rand(1..3).days,
     price: rand(20_000..40_000)
