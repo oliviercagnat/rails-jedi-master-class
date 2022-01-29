@@ -1,30 +1,27 @@
 <div class ="container">
-
-<h1>All our <%= Lesson.count %> lessons</h1>
-
-<div class="row">
-  <% @lessons.each do |lesson| %>
-    <div class="col-4">
-      <div class="lesson-card">
-        <div class="lesson-card-skill-name">
-          <h4><%= lesson.skill_name %></h4>
-          <% if lesson.user.status == "Jedi" %>
-            <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
-          <% end %>
+  <h1>All our <%= Lesson.count %> lessons</h1>
+    <div class="row">
+      <% @lessons.each do |lesson| %>
+        <div class="col-4">
+          <div class="lesson-card">
+            <div class="lesson-card-skill-name">
+              <h4><%= lesson.skill_name %></h4>
+              <% if lesson.user.status == "Jedi" %>
+                <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
+              <% end %>
+            </div>
+            <p><%= lesson.quick_description%></p>
+            <div class="flex">
+              <p>Price: <%= lesson.price %> Imperial Credits</p>
+              <p>Starting time: <%= lesson.start_at %></p>
+              <p>Ending time: <%= lesson.end_at %></p>
+              <%= link_to "See more!", lesson_path(lesson)  %>
+            </div>
+          </div>
         </div>
-        <p><%= lesson.quick_description%></p>
-        <div class="flex">
-          <p>Price: <%= lesson.price %> Imperial Credits</p>
-          <p>Starting time: <%= lesson.start_at %></p>
-          <p>Ending time: <%= lesson.end_at %></p>
-          <%= link_to "See more!", lesson_path(lesson)  %>
-        </div>
-      </div>
+      <% end %>
+      <% if policy(Lesson).create? %>
+        <%= link_to "New lesson", new_lesson_path %>
+      <% end %>
     </div>
-  <% end %>
-  <% if policy(Lesson).create? %>
-    <%= link_to "New lesson", new_lesson_path %>
-  <% end %>
-</div>
-
 </div>

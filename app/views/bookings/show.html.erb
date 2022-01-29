@@ -1,8 +1,16 @@
-<h1>You booked  <%= @lesson.skill_name %></h1>
-<h4>with <%= @lesson.user.name %></h4>
-<h3>Its from <%= @lesson.start_at %> until <%= @lesson.end_at %></h3>
+ <div class="container">
+  <div class="card p-3 m-1">
+    <h1>You booked <%= @lesson.skill_name %></h1>
+    <% if @lesson.user.status == "Jedi" %>
+      <h3>Taught by: <%= @lesson.user.name %>, of the <%= @lesson.user.side %> side</h3>
+    <% end %>
 
-<%= link_to "Book another lesson", lessons_path  %>
+    <h4>Start date: <%= @lesson.start_at %></h4>
+    <h4>End date: <%= @lesson.end_at %></h4>
+    <p class="">May the force be with you.</p>
 
+  </div>
+  <%= link_to "Book another lesson", lessons_path, class: "btn btn-warning"  %>
+  <%= link_to "See all your classes!", pages_user_profile_path, class: "btn btn-success"  %>
+ </div>
 
-<%= link_to "See all your classes!", pages_user_profile_path  %>
