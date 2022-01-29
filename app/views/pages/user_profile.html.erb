@@ -1,20 +1,28 @@
 <div class="container-fluid">
-  <div d-flex flex-row-reverse w-auto>
-    <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light' %>
+  <div class="card">
+    <div class="card-header">
+      Profile
+    </div>
+    <div class="card-body d-flex flex-column">
+      <div>
+        <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        <h1><%= current_user.name %></h1>
+      </div>
+      <h5 class="card-title">About me</h5>
+      <p class="card-text">Write something about you</p>
+      <p class="card-text">Your are learning to become a : <%= current_user.side == "Light"? "Jedi" : "Sith" %><%= current_user.side %></p>
+      <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light w-3' %>
+    </div>
   </div>
 
   <div class="card">
-  <div class="card-header">
-    Profile
-  </div>
-  <div class="card-body d-flex flex-column">
-    <div>
-      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-      <h1><%= @user.name %></h1>
+    <div class="card-header">
+      Your Bookings
     </div>
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <%# <% @user.bookings(lesson).each |booking| %>
+      <div class="card-body">
+        <h5 class="card-title"> You don't have any classes yet</h5>
+      </div>
+    <%# <% end %>
   </div>
-</div>
 </div>

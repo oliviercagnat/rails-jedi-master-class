@@ -9,7 +9,7 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
-     authorize @lesson
+    authorize @lesson
   end
 
   def show
