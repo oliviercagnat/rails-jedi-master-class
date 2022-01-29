@@ -1,5 +1,14 @@
-<div class="container-fluid">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url( <%= image_path("banner") %>);">
+  <div class="container">
+     <h1>Your Next Step to become a
+    <%= current_user.side == "Light"? "Jedi" : "Sith" %>
+   </h1>
+    <p>Welcome <%= current_user.email %> <%= current_user.name %></p>
+  </div>
+</div>
 
+
+<div class="container-fluid">
   <div>
     <h1>Your Next Step to become a
     <%= current_user.side == "Light"? "Jedi" : "Sith" %>
@@ -14,7 +23,7 @@
     <% @lessons.each do |lesson| %>
       <div class="card col-4" style="width: 18rem;">
         <%= image_tag lesson.skill_picture, alt: "skill picture" %>
-    
+
         <div class="card-body">
           <h5 class="card-title"><%= lesson.skill_name %></h5>
           <p class="card-text"><%= lesson.description.truncate(200) %></p>
@@ -25,5 +34,7 @@
       </div>
     <% end  %>
   </div>
-  <%= link_to "See all lessons", lessons_path, class:"btn btn-light" %>
+  <div class="text-center">
+  <%= link_to "See all lessons", lessons_path, class:"btn btn-light mt-4" %>
+  </div>
 </div>
