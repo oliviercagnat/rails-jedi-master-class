@@ -10,8 +10,8 @@ class BookingsController < ApplicationController
     @booking.lesson = @lesson
     @booking.user = current_user
     if @booking.save
+      #flash[:notice]="Lesson booked!!"
       redirect_to lesson_booking_path(@lesson, @booking)
-      flash[:notice]="Lesson booked!!"
     else
       render :show
     end
