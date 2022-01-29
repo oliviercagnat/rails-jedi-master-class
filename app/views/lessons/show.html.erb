@@ -1,6 +1,12 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @lesson.skill_picture %>);">
+<div class="container">
+    <h1><%= @lesson.skill_name %></h1>
+  </div>
+</div>
+
 
 <div class ="container">
-  <h1><%= @lesson.skill_name %></h1>
+
     <% if @lesson.user.status == "Jedi" %>
     <h3>Taught by: <%= @lesson.user.name %>, <%= @lesson.user.side %> side</h3>
     <% end %>
