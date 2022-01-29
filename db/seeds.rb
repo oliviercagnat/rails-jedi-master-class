@@ -6,7 +6,7 @@ Lesson.destroy_all
 User.destroy_all
 
 puts "Creating lessons..."
- User.create!(
+  User.create!(
     email: "daveflanik@gmail.com",
     password: "123456",
     name: Faker::Movies::StarWars.character,
@@ -15,7 +15,7 @@ puts "Creating lessons..."
     description: Faker::Movies::StarWars.wookiee_sentence
   )
 
-   User.create!(
+  User.create!(
     email: "padawan@st.com",
     password: "123456",
     name: Faker::Movies::StarWars.character,
