@@ -5,12 +5,16 @@
     </div>
     <div class="card-body d-flex flex-column">
       <div>
-        <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        <% if current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, height: 100, width: 150, crop: :fill %>
+        <% else %>
+          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        <% end %>
         <h1><%= current_user.name %></h1>
       </div>
       <h5 class="card-title">About me</h5>
       <p class="card-text">Write something about you</p>
-      <p class="card-text">Your are learning to become a : <%= current_user.side == "Light"? "Jedi" : "Sith" %><%= current_user.side %></p>
+      <p class="card-text">Your are learning to become a : <%= current_user.side == "Light" ? "Jedi" : "Sith" %></p>
       <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light w-3' %>
     </div>
   </div>
