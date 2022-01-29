@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div d-flex flex-row-reverse w-auto>
+    <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light' %>
+  </div>
+
+  <div class="card">
+  <div class="card-header">
+    Profile
+  </div>
+  <div class="card-body d-flex flex-column">
+    <div>
+      <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+      <h1><%= current_user.name %></h1>
+    </div>
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
