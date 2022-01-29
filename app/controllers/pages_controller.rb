@@ -2,8 +2,12 @@ class PagesController < ApplicationController
   def home
     @lessons = if current_user.side == "Light"
       Lesson.includes(:user).where(user: { side: "Light" }).first(5)
-      else
+    else
       Lesson.includes(:user).where(user: { side: "Dark" }).first(5)
     end
+  end
+
+  def user_profile
+    @user = current_user
   end
 end
