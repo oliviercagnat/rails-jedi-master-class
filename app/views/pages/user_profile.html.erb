@@ -16,7 +16,7 @@
   </div>
 
   <div>
-    <h1>Your Bookings</h1>
+    <h1 class="mt-3 text-center">Your Bookings</h1>
     <% current_user.bookings.each do |booking| %>
       <div class="card mb-3" style="max-width: 100%;">
         <div class="row mb-3">
@@ -27,7 +27,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= booking.lesson.skill_name %></h5>
               <p class="card-text"><%= booking.lesson.description.truncate(200) %>.</p>
-              <p class="card-text"><small class="text-muted">Starts in <%= (booking.lesson.start_at - Date.current).to_date %></small></p>
+              <p class="card-text"><small class="text-muted">Starts in <%= (booking.lesson.start_at - Date.current).to_i %> days.</small></p>
             </div>
           </div>
       </div>
