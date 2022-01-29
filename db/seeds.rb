@@ -56,7 +56,7 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
 
 ","Similar to a Force trance, morichro suspended biological functions, including breathing and heart rate. A trained morichro user could turn the technique upon himself, surviving without food, water, or even air for periods of over a year at a time, though it would not protect against vacuum. But unlike a Force trance, it could also be turned on others, making it an effective way of subduing enemies. However, failure to monitor a targeted opponent could render them permanently unconscious or cause them to die of dehydration or starvation."]
 
-5.times do
+10.times do
   #skill_name = Faker::Superhero.power
   # r = RestClient::Request.execute(method: :post, url: 'https://api.deepai.org/api/text-generator', timeout: 600,
   #   headers: {'api-key' => '627f84fd-c139-46b4-88f9-7d07de412bad'},
