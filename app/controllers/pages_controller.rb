@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def user_profile
+    @user = current_user
   end
 end
