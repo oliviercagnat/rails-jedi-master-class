@@ -15,14 +15,15 @@
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-header">
-      Your Bookings
-    </div>
-    <%# <% @user.bookings(lesson).each |booking| %>
-      <div class="card-body">
-        <h5 class="card-title"> You don't have any classes yet</h5>
+  <div class="">
+    <h1>Your Bookings</h1>
+    <% current_user.bookings.each do |booking| %>
+      <div class="card-product">
+        <%= image_tag booking.lesson.skill_picture, alt: "skill picture", width: 200 %>
+      <div class="card-product-infos">
+        <h2><%= booking.lesson.skill_name %></h2>
+        <p><%= booking.lesson.quick_description %>.</p>
       </div>
-    <%# <% end %>
+    <% end %>
   </div>
 </div>

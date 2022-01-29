@@ -4,5 +4,4 @@ class Lesson < ApplicationRecord
   def quick_description
     "#{description[0..40]}..."
   end
-
 end
