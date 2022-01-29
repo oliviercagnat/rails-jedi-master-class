@@ -5,29 +5,36 @@
     </div>
     <div class="card-body d-flex flex-column">
       <div>
-        <% if current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, height: 100, width: 150, crop: :fill %>
-        <% else %>
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-        <% end %>
+        <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
         <h1><%= current_user.name %></h1>
       </div>
       <h5 class="card-title">About me</h5>
       <p class="card-text">Write something about you</p>
-      <p class="card-text">Your are learning to become a : <%= current_user.side == "Light" ? "Jedi" : "Sith" %></p>
+      <p class="card-text">Your are learning to become a : <%= current_user.side == "Light"? "Jedi" : "Sith" %><%= current_user.side %></p>
       <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light w-3' %>
     </div>
   </div>
 
-  <div class="">
-    <h1>Your Bookings</h1>
+  <div>
+    <h1 class="mt-3 text-center">Your Bookings</h1>
     <% current_user.bookings.each do |booking| %>
-      <div class="card-product">
-        <%= image_tag booking.lesson.skill_picture, alt: "skill picture", width: 200 %>
-      <div class="card-product-infos">
-        <h2><%= booking.lesson.skill_name %></h2>
-        <p><%= booking.lesson.quick_description %>.</p>
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <%= image_tag booking.lesson.skill_picture, alt: "skill picture", class: "img-fluid rounded-start" %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.lesson.skill_name %></h5>
+              <p class="card-text"><%= booking.lesson.description.truncate(200) %>.</p>
+              <p class="card-text"><small class="text-muted">Starts in <%= (booking.lesson.start_at - Date.current).to_i %> days.</small></p>
+            </div>
+          </div>
       </div>
     <% end %>
+    </div>
+
+
+  </div>
   </div>
 </div>
