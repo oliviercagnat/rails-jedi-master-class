@@ -1,5 +1,3 @@
-
-
 <div class ="container">
   <h1><%= @lesson.skill_name %></h1>
     <% if @lesson.user.status == "Jedi" %>
@@ -13,7 +11,7 @@
       <p>Starting time: <%= @lesson.start_at %></p>
       <p>Ending time: <%= @lesson.end_at %></p>
       <div class="btn btn-primary">
-        <%= link_to "Return", lessons_path, :class => "btn"  %>
+        <%= link_to "Return", lessons_path, class: "btn"  %>
       </div>
       <div class="btn btn-primary">
         <% if policy(Booking).create? %>
