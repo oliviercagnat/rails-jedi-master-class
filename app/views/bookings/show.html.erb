@@ -1,16 +1,19 @@
  <div class="container">
-  <div class="card p-3 m-1">
-    <h1>You booked <%= @lesson.skill_name %></h1>
-    <% if @lesson.user.status == "Jedi" %>
-      <h3>Taught by: <%= @lesson.user.name %>, of the <%= @lesson.user.side %> side</h3>
-    <% end %>
-
-    <h4>Start date: <%= @lesson.start_at %></h4>
-    <h4>End date: <%= @lesson.end_at %></h4>
-    <p class="">May the force be with you.</p>
-
+  <div class="card mb-3">
+    <%= image_tag @lesson.skill_picture, alt: "skill picture", class: "card-img-top img-thumbnail h-25" %>
+    <div class="card-body">
+      <h1 class="card-title">You booked <%= @lesson.skill_name %>
+      <% if @lesson.user.status == "Jedi" %>
+        <h3>Taught by: <%= @lesson.user.name %>, of the <%= @lesson.user.side %> side</h3>
+      <% end %></h1>
+      <h4 class="card-text">Start date: <%= @lesson.start_at %></h4>
+      <h4 class="card-text">End date: <%= @lesson.end_at %></h4>
+      <p class="card-text">May the force be with you.</p>
+      <div class="conatainer">
+        <%= link_to "Book another lesson", lessons_path, class: "btn btn-primary"  %>
+        <%= link_to "See all your classes", pages_user_profile_path, class: "btn btn-success"  %>
+      </div>
+    </div>
   </div>
-  <%= link_to "Book another lesson", lessons_path, class: "btn btn-warning"  %>
-  <%= link_to "See all your classes!", pages_user_profile_path, class: "btn btn-success"  %>
  </div>
 

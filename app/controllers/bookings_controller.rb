@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
       redirect_to lesson_booking_path(@lesson, @booking)
       flash[:notice]="Lesson booked!!"
     else
-      render :new
+      render :show
     end
     booking_policy_authorize
   end
