@@ -5,6 +5,7 @@ class LessonsController < ApplicationController
   def index
     @lessons = Lesson.all
     @lessons = policy_scope(Lesson)
+    @current_user = current_user
   end
 
   def new
