@@ -40,6 +40,8 @@ class LessonsController < ApplicationController
   end
 
   def destroy
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
     lesson_policy_authorize
   end
 
