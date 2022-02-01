@@ -10,6 +10,7 @@
                               end_year: Date.today - 12, discard_day: true,
                               order: [:month, :year] %>
     <%#= f.input :start_at, as: :string, wrapper: :start_at, input_html: {value: I18n.l(f.object.start_at)} %>
+    <%= f.input :skill_picture, as: :file %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 
