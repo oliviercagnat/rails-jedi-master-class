@@ -1,23 +1,53 @@
 <div class ="container">
-  <h1>All our <%= Lesson.count %> lessons</h1>
-
-  <div class="row justify-content-around">
-    <% @lessons.each do |lesson| %>
-      <div class="card col-4 mt-4" style="width: 18rem;">
-      <div class="mt-3">
-        <%= image_tag lesson.skill_picture, alt: "skill picture", class: "w-100" %>
-      </div>
-
-        <div class="card-body">
-          <h5 class="card-title"><%= lesson.skill_name %></h5>
-          <% if lesson.user.status == "Jedi" %>
-            <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
-          <% end %>
-          <p class="card-text"><%= lesson.quick_description %></p>
-          <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
-          <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
+  <% if current_user == "Padawan" %>
+      <h1>Through knowledge you gain power.</h1>
+      <h2>All our <%= Lesson.count %> lessons</h2>
+    <div class="row justify-content-around">
+      <% @lessons.each do |lesson| %>
+        <div class="card col-4 mt-4" style="width: 18rem;">
+        <div class="mt-3">
+          <%= image_tag lesson.skill_picture, alt: "skill picture", class: "w-100" %>
         </div>
-      </div>
-    <% end  %>
-  </div>
+
+          <div class="card-body">
+            <h5 class="card-title"><%= lesson.skill_name %></h5>
+            <% if lesson.user.status == "Jedi" %>
+              <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
+            <% end %>
+            <p class="card-text"><%= lesson.quick_description %></p>
+            <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
+            <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
+          </div>
+        </div>
+      <% end  %>
+    </div>
+  <% else %>
+      <h1>The force is with you <%= current_user.name %>.</h1>
+      <h2>All your <%= @jedi_lessons.count %> lessons</h2>
+      <% if policy(Lesson).create? %>
+        <%= link_to "Create new lesson",  new_lesson_path, class: "btn btn-primary" %>
+      <%  end %>
+    <div class="row justify-content-around">
+    <% @jedi_lessons.each do |lesson| %>
+        <div class="card col-4 mt-4" style="width: 18rem;">
+        <div class="mt-3">
+        <% if lesson.skill_picture.present? %>
+          <%= image_tag lesson.skill_picture, alt: "skill picture", class: "w-100" %>
+        <% else %>
+          <%= image_tag "banner.jpg", class: "w-100" %>
+        <% end %>
+        </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= lesson.skill_name %></h5>
+            <% if lesson.user.status == "Jedi" %>
+              <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
+            <% end %>
+            <p class="card-text"><%= lesson.quick_description %></p>
+            <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
+            <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
+          </div>
+        </div>
+      <% end  %>
+    </div>
+  <% end %>
 </div>
