@@ -2,7 +2,7 @@
 <div class="banner mb-2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url( <%= image_path("banner.jpg") %>);">
   <div class="container">
      <h1>Your Next Step to become a
-    <%= current_user.side == "Light"? "Jedi" : "Sith" %>
+    <%= current_user.side == "true" ? "Jedi" : "Sith" %>
    </h1>
     <p>Welcome <%= current_user.name %></p>
   </div>
