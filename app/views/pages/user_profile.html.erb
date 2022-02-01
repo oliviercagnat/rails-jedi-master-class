@@ -14,7 +14,7 @@
       </div>
       <h5 class="card-title">About me</h5>
       <p class="card-text">Write something about you</p>
-      <p class="card-text">Your are learning to become a : <%= current_user.side == "Light"? "Jedi" : "Sith" %><%= current_user.side %></p>
+      <p class="card-text">Your are learning to become a : <%= current_user.side == "true" ? "Jedi" : "Sith" %></p>
       <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light w-3' %>
     </div>
   </div>
