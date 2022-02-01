@@ -28,6 +28,7 @@
               <h5 class="card-title"><%= booking.lesson.skill_name %></h5>
               <p class="card-text"><%= booking.lesson.description.truncate(200) %>.</p>
               <p class="card-text"><small class="text-muted">Starts in <%= (booking.lesson.start_at - Date.current).to_i %> days.</small></p>
+              <p class="card-text">Youre class is <%=booking.status%></p>
             </div>
           </div>
       </div>
