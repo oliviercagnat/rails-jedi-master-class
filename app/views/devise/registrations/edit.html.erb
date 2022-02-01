@@ -22,8 +22,8 @@
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :name %>
-    <%= f.collection_radio_buttons :status, [[true, 'Jedi'], [false, 'Padawan']], :first, :last  %> <br>
-    <%= f.collection_radio_buttons :side, [[true, 'Light'], [false, 'Dark']], :first, :last  %>
+    <%= f.collection_radio_buttons :status, [["Jedi", 'Jedi'], ["Padawan", 'Padawan']], :first, :last  %> <br>
+    <%= f.collection_radio_buttons :side, [["Light", 'Light'], ["Dark", 'Dark']], :first, :last  %>
     <%= f.input :avatar, as: :file %>
   </div>
 
