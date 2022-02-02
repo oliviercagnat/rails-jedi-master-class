@@ -14,3 +14,9 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+import { initSoundOnClick } from '../components/button';
+
+document.addEventListener('turbolinks:load', () => {
+  initSoundOnClick();
+});

@@ -11,10 +11,15 @@
       <p>Price: <%= @lesson.price %> Imperial Credits</p>
       <p>Starting time: <%= @lesson.start_at %></p>
       <p>Ending time: <%= @lesson.end_at %></p>
-      <%= link_to "Return", lessons_path, class: "btn btn-primary"  %>
+      <%= link_to "Return", lessons_path, class: "btn-general"  %>
       <% if policy(Booking).create? %>
-        <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "btn btn-primary" %>
+        <a class="btn-booking btn-general">Book now</a>
+        <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "hidden actual-link" %>
+
       <%  end %>
+      <%= audio_tag "saber-light.mp3", class:"sound" %>
+
+      <%# <audio src="../../assets/autio/Star-wars-lightsaber-sound-effects.mp3"></audio> %>
   </div>
 </div>
 
