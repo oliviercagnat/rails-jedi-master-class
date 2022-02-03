@@ -31,6 +31,17 @@ class BookingsController < ApplicationController
     booking_policy_authorize
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    booking_policy_authorize
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(params[:status])
+    booking_policy_authorize
+  end
+
   private
 
   def booking_policy_authorize

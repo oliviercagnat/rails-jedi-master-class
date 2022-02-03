@@ -3,10 +3,15 @@
       <h1>Through knowledge you gain power.</h1>
       <h2>All our <%= Lesson.count %> lessons</h2>
     <div class="row justify-content-around">
+
     <% @lessons.each do |lesson| %>
       <div class="card col-4 mt-4" style="width: 18rem;">
       <div class="mt-3">
-        <%= image_tag lesson.skill_picture, alt: "skill picture", class: "w-100" %>
+        <% if lesson.skill_picture? %>
+            <%= image_tag lesson.skill_picture, alt: "skill picture", class: "w-100" %>
+          <% else %>
+            <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+          <% end %>
       </div>
 
         <div class="card-body">
@@ -17,6 +22,7 @@
           <p class="card-text"><%= lesson.quick_description %></p>
           <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
           <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
+
         </div>
       </div>
     <% end  %>
@@ -31,9 +37,7 @@
     <% @jedi_lessons.each do |lesson| %>
         <div class="card col-4 mt-4" style="width: 19rem;">
         <div class="mt-3">
-        <% if lesson.skill_picture.present? %>
-          <%= image_tag lesson.skill_picture, alt: "skill picture", class: "w-100" %>
-        <% elsif lesson.skill_picture.key.present? %>
+        <% if lesson.skill_picture.attached? %>
           <%= cl_image_tag lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
         <% else %>
           <%= image_tag "banner.jpg", class: "w-100" %>
