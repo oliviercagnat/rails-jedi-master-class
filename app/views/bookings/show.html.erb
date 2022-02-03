@@ -11,8 +11,8 @@
       <% if @lesson.user.status == "Jedi" %>
         <h3>Taught by: <%= @lesson.user.name %>, of the <%= @lesson.user.side %> side</h3>
       <% end %></h1>
-      <h4 class="card-text">Start date: <%= @lesson.start_at %></h4>
-      <h4 class="card-text">End date: <%= @lesson.end_at %></h4>
+      <h4 class="card-text">Start <i class="fa fa-calendar"></i> <%= @lesson.start_at %></h4>
+      <h4 class="card-text">End <i class="fa fa-calendar"></i> <%= @lesson.end_at %></h4>
       <p class="card-text">May the force be with you.</p>
       <div class="conatainer">
         <%= link_to "Book another lesson", lessons_path, class: "btn btn-primary"  %>
@@ -21,4 +21,4 @@
     </div>
   </div>
 </div>
-  
+
