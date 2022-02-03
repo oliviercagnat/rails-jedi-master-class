@@ -5,23 +5,23 @@ class LessonPolicy < ApplicationPolicy
     end
   end
 
-    def create?
-      user.status == "Jedi"
-    end
+  def create?
+    user.status == "Jedi"
+  end
 
-    def update?
-      user.status == "Jedi"
-    end
+  def update?
+    user.status == "Jedi"
+  end
 
-    def index?
-      true
-    end
+  def index?
+    true
+  end
 
-    def show?
-      true
-    end
+  def show?
+    true
+  end
 
-    def destroy?
-      user.status == "Jedi"
-    end
+  def destroy?
+    user.status == "Jedi"
+  end
 end

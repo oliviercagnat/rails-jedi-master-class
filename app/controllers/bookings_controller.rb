@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.lesson = @lesson
     @booking.user = current_user
     if @booking.save
-      #flash[:notice]="Lesson booked!!"
+      # flash[:notice]="Lesson booked!!"
       redirect_to lesson_booking_path(@lesson, @booking)
     else
       render :show
@@ -33,22 +33,22 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
-    booking_policy_authorize
+    authorize @booking
   end
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(params[:status])
-    booking_policy_authorize
+    @booking.update(status: params["booking"]["status"])
+    authorize @booking
   end
 
-    private
+  private
 
-    def booking_policy_authorize
-      authorize @booking
-    end
+  def booking_policy_authorize
+    authorize @booking
+  end
 
-    def booking_params
-      params.require(:booking).permit(:user_id, :lesson_id)
-    end
+  def booking_params
+    params.require(:booking).permit(:user_id, :lesson_id, :status)
+  end
 end
