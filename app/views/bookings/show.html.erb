@@ -1,5 +1,6 @@
- <div class="container">
-  <div class="card mb-3">
+
+<div class="container w-auto">
+  <div class="card mb-3 h-25">
     <% if  @lesson.skill_picture.attached? %>
       <%= cl_image_tag @lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
     <% else %>
@@ -19,4 +20,5 @@
       </div>
     </div>
   </div>
- </div>
+</div>
+  

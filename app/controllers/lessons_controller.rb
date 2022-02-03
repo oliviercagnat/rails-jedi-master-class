@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lessons = Lesson.all
+    @lessons = policy_scope(Lesson)
     @jedi_lessons = policy_scope(Lesson).where(user_id: current_user.id)
     @current_user = current_user
   end
