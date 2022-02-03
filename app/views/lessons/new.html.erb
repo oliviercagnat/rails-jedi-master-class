@@ -2,7 +2,6 @@
 <div class="container center mt-4">
   <%= simple_form_for([ @lesson]) do |f| %>
     <%= f.input :skill_name %>
-    <%= f.input :name %>
     <%= f.input :description, as: :text, placeholder: "Enter class description." %>
     <%= f.input :price, as: :integer, placeholder: "Imperial Credits" %>
     <%= f.input :start_at, as: :date, html5: true %>
@@ -12,6 +11,7 @@
                               order: [:month, :year] %>
     <%#= f.input :start_at, as: :string, wrapper: :start_at, input_html: {value: I18n.l(f.object.start_at)} %>
     <%= f.input :skill_picture, as: :file %>
+    <%= f.association :user, :as => :hidden, :input_html => { :value => current_user.id }  %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 
