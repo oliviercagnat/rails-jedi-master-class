@@ -1,5 +1,5 @@
 <div class ="container">
-  <% if current_user == "Padawan" %>
+  <% if current_user.status == "Padawan" %>
       <h1>Through knowledge you gain power.</h1>
       <h2>All our <%= Lesson.count %> lessons</h2>
     <div class="row justify-content-around">
