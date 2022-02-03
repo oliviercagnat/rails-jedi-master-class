@@ -36,6 +36,11 @@ class LessonsController < ApplicationController
   end
 
   def update
+    if @lesson.update(lesson_params)
+      redirect_to lessons_path, notice: "Lesson was successfully updated"
+    else
+      render :edit
+    end
     lesson_policy_authorize
   end
 
