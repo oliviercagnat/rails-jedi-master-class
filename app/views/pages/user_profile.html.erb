@@ -14,7 +14,11 @@
       </div>
       <h5 class="card-title">About me</h5>
       <p class="card-text">Write something about you</p>
-      <p class="card-text">You are learning to become a: <%= current_user.side == "Light" ? "Jedi" : "Sith" %></p>
+      <% if current_user.status = "Padawan" %>
+        <p class="card-text">You are learning to become a: <%= current_user.side == "Light" ? "Jedi" : "Sith" %></p>
+      <% else %>
+        <p class="card-text">You are a master <%= current_user.side == "Light" ? "Jedi" : "Sith" %></p>
+      <% end %>
       <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light w-3' %>
     </div>
   </div>
@@ -25,7 +29,11 @@
       <div class="card mb-3" style="max-width: 100%;">
         <div class="row mb-3">
           <div class="col-md-4">
-            <%= image_tag booking.lesson.skill_picture, alt: "skill picture", class: "img-fluid rounded-start" %>
+            <% if booking.lesson.skill_picture.attached? %>
+              <%= cl_image_tag booking.lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
+            <% else %>
+              <%= image_tag "banner.jpg", class: "w-100" %>
+            <% end %>
           </div>
           <div class="col-md-8">
             <div class="card-body">

@@ -1,14 +1,19 @@
+
 <div class="container w-auto">
   <div class="card mb-3 h-25">
-    <%= image_tag @lesson.skill_picture, alt: "skill picture", class: "card-booking" %>
+    <% if  @lesson.skill_picture.attached? %>
+      <%= cl_image_tag @lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
+    <% else %>
+      <%= image_tag "banner.jpg", class: "w-100" %>
+    <% end %>
     <div class="card-body">
       <h1 class="card-title">You booked <%= @lesson.skill_name %>
       <% if @lesson.user.status == "Jedi" %>
         <h3>Taught by: <%= @lesson.user.name %>, of the <%= @lesson.user.side %> side</h3>
       <% end %></h1>
-      <h4 class="card-text">Start date: <%= @lesson.start_at %></h4>
-      <h4 class="card-text">End date: <%= @lesson.end_at %></h4>
-      <p class="card-text">May the force be with you.</p>
+      <h4 class="card-text px-2 ">Start <i class="fa fa-calendar"></i> <%= @lesson.start_at %></h4>
+      <h4 class="card-text px-2 mt-2">End <i class="fa fa-calendar"></i> <%= @lesson.end_at %></h4>
+      <p class="card-text p-2">May the force be with you.</p>
       <div class="conatainer">
         <%= link_to "Book another lesson", lessons_path, class: "btn btn-primary"  %>
         <%= link_to "See all your classes", pages_user_profile_path, class: "btn btn-success"  %>
@@ -16,3 +21,4 @@
     </div>
   </div>
 </div>
+

@@ -5,19 +5,23 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
-    def create?
-      user.status == "Padawan"
-    end
+  def create?
+    user.status == "Padawan"
+  end
 
-    def show?
-      true
-    end
+  def show?
+    true
+  end
 
-    def index?
-      user.status = "Jedi"
-    end
+  def index?
+    user.status = "Jedi"
+  end
 
-    def destroy?
-      user.status == "Padawan"
-    end
+  def destroy?
+    user.status == "Padawan"
+  end
+
+  def update?
+    user.status = "Jedi"
+  end
 end
