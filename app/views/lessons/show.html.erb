@@ -22,6 +22,23 @@
         <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "btn btn-primary" %>
       <%  end %>
   </div>
+
+  <div class="booking-actions">
+    <% @lesson.bookings do |booking| %>
+      <% if booking.pending? %>
+        <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
+        <%= f.submit 'Confirmed', class: 'btn btn-info' %>
+      <% end %>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'denied'} %>
+        <%= f.submit 'Denied', class: 'btn btn-info' %>
+      <% end %>
+      <% else %>
+        <p class='booking-tag'><%= booking.status %></p>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 
