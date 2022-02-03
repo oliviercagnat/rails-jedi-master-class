@@ -1,4 +1,6 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @lesson.skill_picture %>);">
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("banner.jpg") %>);">
+
 <div class="container">
     <h1><%= @lesson.skill_name %></h1>
   </div>
@@ -15,8 +17,8 @@
       </p>
       <div class="flex">
         <p>Price: <%= @lesson.price %> Imperial Credits</p>
-        <p>Starting time: <%= @lesson.start_at %></p>
-        <p>Ending time: <%= @lesson.end_at %></p>
+        <p>Start <i class="fa fa-calendar"></i> <%= @lesson.start_at %></p>
+        <p>End <i class="fa fa-calendar"></i> <%= @lesson.end_at %></p>
         <%= link_to "Return", lessons_path, class: "btn btn-primary"  %>
         <% if policy(Booking).create? %>
           <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "btn btn-primary" %>
@@ -26,7 +28,6 @@
       <h1><%= @lesson.skill_name %></h1>
        <%= @lesson.description %>
       <% @lesson.bookings.each do |booking| %>
-       <%= booking  %>
         <% if booking.pending? %>
           <%= simple_form_for booking do |f| %>
           <% if policy(Booking).update? %>
@@ -41,7 +42,14 @@
          <% end %>
         <% end %>
         <% else %>
-          <p class='booking-tag'><%= booking.status %></p>
+        <ul class= "p-0 mt-2">
+          <p class='booking-tag'>
+          <% if booking.status = "confirmed" %>
+            <i class="fa fa-check"></i> <%=booking.user.name%> is <%= booking.status.capitalize %></p>
+          <% else booking.status = "denied" %>
+            <i class="fa fa-times"></i> <%=booking.user.name%> is <%= booking.status.capitalize %></p>
+          <% end %>
+        </ul>
         <% end %>
       <% end %>
     </div>

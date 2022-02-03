@@ -16,8 +16,3 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
-
-import { initLessonCardStyle } from "../components/cards"
-document.addEventListener('turbolinks:load', () => {
-  initLessonCardStyle();
-});
