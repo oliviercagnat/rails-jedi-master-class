@@ -1,4 +1,6 @@
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("banner.jpg") %>);">
+
 <div class="container">
     <h1><%= @lesson.skill_name %></h1>
   </div>
@@ -40,7 +42,14 @@
          <% end %>
         <% end %>
         <% else %>
-          <p class='booking-tag'><%= @booking.user %>is <%= booking.status.capitalize %></p>
+        <ul class= "p-0 mt-2">
+          <p class='booking-tag'>
+          <% if booking.status = "confirmed" %>
+            <i class="fa fa-check"></i> <%=booking.user.name%> is <%= booking.status.capitalize %></p>
+          <% else booking.status = "denied" %>
+            <i class="fa fa-times"></i> <%=booking.user.name%> is <%= booking.status.capitalize %></p>
+          <% end %>
+        </ul>
         <% end %>
       <% end %>
     </div>
