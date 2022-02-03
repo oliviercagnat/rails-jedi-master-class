@@ -9,7 +9,7 @@
         <div class="p-3">
           <h5 class="card-title"><%= lesson.skill_name %></h5>
           <% if lesson.user.status == "Jedi" %>
-            <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
+            <p class="status">Taught by: <%= lesson.user.name %>, <%= lesson.user.side == "Light"? "Jedi" : "Sith" %> Master</p>
           <% end %>
           <p class="card-text"><%= lesson.quick_description %></p>
           <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
@@ -54,3 +54,5 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript" src="/javascripts/lib/index_cards_colors.js" charset="utf-8"></script>
