@@ -25,7 +25,11 @@
       <div class="card mb-3" style="max-width: 100%;">
         <div class="row mb-3">
           <div class="col-md-4">
-            <%= image_tag booking.lesson.skill_picture, alt: "skill picture", class: "img-fluid rounded-start" %>
+            <% if booking.lesson.skill_picture.attached? %>
+              <%= cl_image_tag booking.lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
+            <% else %>
+              <%= image_tag "banner.jpg", class: "w-100" %>
+            <% end %>
           </div>
           <div class="col-md-8">
             <div class="card-body">

@@ -27,8 +27,11 @@
   <div class="row justify-content-between">
     <% @lessons.each do |lesson| %>
       <div class="card col-4 m-4" style="width: 18rem;">
-        <%= image_tag lesson.skill_picture, alt: "skill picture" %>
-
+        <% if lesson.skill_picture.attached? %>
+          <%= cl_image_tag lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
+        <% else %>
+          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= lesson.skill_name %></h5>
           <p class="card-text"><%= lesson.description.truncate(200) %></p>
