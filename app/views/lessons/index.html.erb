@@ -9,7 +9,7 @@
           <%= image_tag lesson.skill_picture, alt: "skill picture", class: "w-100" %>
         </div>
 
-          <div class="card-body">
+          <div class="col-4 sith">
             <h5 class="card-title"><%= lesson.skill_name %></h5>
             <% if lesson.user.status == "Jedi" %>
               <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
