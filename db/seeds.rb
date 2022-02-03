@@ -64,7 +64,7 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
   #       'text' => "#{skill_name} lesson is",
   #   }
   # )
-  unsplash_url = "http://source.unsplash.com/1600x900/?superpower"
+  # unsplash_url = "http://source.unsplash.com/1600x900/?superpower"
 
   start_at = Date.current + rand(10).days
   lesson = Lesson.create!(
@@ -74,7 +74,7 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
     start_at: start_at,
     end_at: start_at + rand(1..3).days,
     price: rand(20_000..40_000),
-    skill_picture: "#{unsplash_url}"
+    # skill_picture: "#{unsplash_url}"
   )
   puts "Lesson #{lesson.id} is created"
 end

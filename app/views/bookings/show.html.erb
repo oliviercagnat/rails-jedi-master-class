@@ -1,6 +1,11 @@
+
 <div class="container w-auto">
   <div class="card mb-3 h-25">
-    <%= image_tag @lesson.skill_picture, alt: "skill picture", class: "card-booking" %>
+    <% if  @lesson.skill_picture.attached? %>
+      <%= cl_image_tag @lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
+    <% else %>
+      <%= image_tag "banner.jpg", class: "w-100" %>
+    <% end %>
     <div class="card-body">
       <h1 class="card-title">You booked <%= @lesson.skill_name %>
       <% if @lesson.user.status == "Jedi" %>
@@ -16,3 +21,4 @@
     </div>
   </div>
 </div>
+  
