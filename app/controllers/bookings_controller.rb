@@ -33,13 +33,13 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
-    booking_policy_authorize
+    authorize @booking
   end
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(params[:status])
-    booking_policy_authorize
+    @booking.update(status: params["booking"]["status"])
+    authorize @booking
   end
 
   private

@@ -29,12 +29,16 @@
        <%= booking  %>
         <% if booking.pending? %>
           <%= simple_form_for booking do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
-          <%= f.submit 'Confirmed', method: :patch, class: 'btn btn-info' %>
+          <% if policy(Booking).update? %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
+            <%= f.submit 'Confirmed', method: :patch, class: 'btn btn-info' %>
+          <% end %>
         <% end %>
         <%= simple_form_for booking do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 'denied'} %>
-          <%= f.submit 'Denied', method: :patch, class: 'btn btn-info' %>
+          <% if policy(Booking).update? %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'denied'} %>
+            <%= f.submit 'Denied', method: :patch, class: 'btn btn-info' %>
+         <% end %>
         <% end %>
         <% else %>
           <p class='booking-tag'><%= booking.status %></p>
