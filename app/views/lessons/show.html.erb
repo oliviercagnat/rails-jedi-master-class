@@ -17,8 +17,8 @@
       </p>
       <div class="flex">
         <p>Price: <%= @lesson.price %> Imperial Credits</p>
-        <p>Starting time: <%= @lesson.start_at %></p>
-        <p>Ending time: <%= @lesson.end_at %></p>
+        <p>Start <i class="fa fa-calendar"></i> <%= @lesson.start_at %></p>
+        <p>End <i class="fa fa-calendar"></i> <%= @lesson.end_at %></p>
         <%= link_to "Return", lessons_path, class: "btn btn-primary"  %>
         <% if policy(Booking).create? %>
           <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "btn btn-primary" %>
