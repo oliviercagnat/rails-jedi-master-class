@@ -33,9 +33,9 @@
         <% if lesson.skill_picture.attached? %>
           <%= cl_image_tag lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
         <% else %>
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-        <% end %> 
-        
+          <%= image_tag "banner.jpg", class: "w-100" %>
+        <% end %>
+
         <div class="p-3">
           <h5><%= lesson.skill_name %></h5>
           <p><%= lesson.description.truncate(200) %></p>

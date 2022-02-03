@@ -2,6 +2,7 @@
 <div class="container center mt-4">
   <%= simple_form_for([ @lesson]) do |f| %>
     <%= f.input :skill_name %>
+    <%= f.input :name %>
     <%= f.input :description, as: :text, placeholder: "Enter class description." %>
     <%= f.input :price, as: :integer, placeholder: "Imperial Credits" %>
     <%= f.input :start_at, as: :date, html5: true %>

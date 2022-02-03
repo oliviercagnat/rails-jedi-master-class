@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:lesson_id])
     @booking = Booking.find(params[:id])
+    @padawan = User.where(user_id: @booking.user.id)
     booking_policy_authorize
   end
 
@@ -39,6 +40,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(status: params["booking"]["status"])
+    redirect_to lesson_booking_path(@lesson, @booking)
     authorize @booking
   end
 
