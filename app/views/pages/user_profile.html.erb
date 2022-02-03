@@ -14,7 +14,11 @@
       </div>
       <h5 class="card-title">About me</h5>
       <p class="card-text">Write something about you</p>
-      <p class="card-text">You are learning to become a: <%= current_user.side == "Light" ? "Jedi" : "Sith" %></p>
+      <% if current_user.status = "Padawan" %>
+        <p class="card-text">You are learning to become a: <%= current_user.side == "Light" ? "Jedi" : "Sith" %></p>
+      <% else %>
+        <p class="card-text">You are a master <%= current_user.side == "Light" ? "Jedi" : "Sith" %></p>
+      <% end %>
       <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light w-3' %>
     </div>
   </div>
