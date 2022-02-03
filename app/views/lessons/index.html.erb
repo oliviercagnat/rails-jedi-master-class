@@ -18,11 +18,10 @@
         <div class="card-body">
           <h5 class="card-title"><%= lesson.skill_name %></h5>
           <% if lesson.user.status == "Jedi" %>
-            <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
+            <p>Master: </i> <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
           <% end %>
-          <p class="card-text"><%= lesson.quick_description %></p>
           <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
-          <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
+          <%= link_to "Learn more", lesson_path(lesson), class:"btn btn-success"  %>
 
         </div>
       </div>
@@ -47,9 +46,8 @@
           <div class="card-body">
             <h5 class="card-title"><%= lesson.skill_name %></h5>
             <% if lesson.user.status == "Jedi" %>
-              <p>Taught by: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
+              <p>Master: <%= lesson.user.name %>, <%= lesson.user.side %> side</p>
             <% end %>
-            <p class="card-text"><%= lesson.quick_description %></p>
             <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
             <div class="justify-content-around">
               <%= link_to "Bookings", lesson_path(lesson), class:"btn btn-primary"  %>
