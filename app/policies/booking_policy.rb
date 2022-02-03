@@ -20,4 +20,9 @@ class BookingPolicy < ApplicationPolicy
     def destroy?
       user.status == "Padawan"
     end
+
+    def update
+      user.status = "Jedi"
+    end
+
 end
