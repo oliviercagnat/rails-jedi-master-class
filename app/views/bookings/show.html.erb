@@ -1,6 +1,6 @@
- <div class="container">
-  <div class="card mb-3">
-    <%= image_tag @lesson.skill_picture, alt: "skill picture", class: "card-img-top img-thumbnail h-25" %>
+<div class="container w-auto">
+  <div class="card mb-3 h-25">
+    <%= image_tag @lesson.skill_picture, alt: "skill picture", class: "card-booking" %>
     <div class="card-body">
       <h1 class="card-title">You booked <%= @lesson.skill_name %>
       <% if @lesson.user.status == "Jedi" %>
@@ -15,5 +15,4 @@
       </div>
     </div>
   </div>
- </div>
-
+</div>
