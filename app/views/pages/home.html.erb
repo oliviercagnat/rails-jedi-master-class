@@ -2,7 +2,7 @@
 <div class="banner mb-2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url( <%= image_path("banner.jpg") %>);">
   <div class="container">
     <% if current_user.status == "Padawan" %>
-      <h1>Your Next Step to become a
+      <h1 id="status">Your Next Step to become a
       <%= current_user.side == "Light"? "Jedi" : "Sith" %>
       </h1>
       <p>Welcome <%= current_user.name %></p>
@@ -15,7 +15,8 @@
 
   </div>
 </div>
-<div class="container-fluid">
+
+<div class="container-fluid" style="background-color: #999999">
   <div class="d-flex">
   <% if current_user.status == "Padawan" %>
     <h2 class="mt-4">Our next classes</h2>
@@ -24,15 +25,15 @@
     <%= link_to "All your lessons", lessons_path(current_user), class:"btn btn-primary m-4"  %>
   <% end %>
   </div>
-  <div class="row justify-content-between">
-    <% @lessons.each do |lesson| %>
-      <div class="card col-4 m-4" style="width: 18rem;">
-        <%= image_tag lesson.skill_picture, alt: "skill picture" %>
 
-        <div class="card-body">
-          <h5 class="card-title"><%= lesson.skill_name %></h5>
-          <p class="card-text"><%= lesson.description.truncate(200) %></p>
-          <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
+  <div class="lessons">
+    <% @lessons.each do |lesson| %>
+      <div class="lesson-card">
+        <%= image_tag lesson.skill_picture, alt: "skill picture", class:"card-img" %>
+        <div class="p-3">
+          <h5><%= lesson.skill_name %></h5>
+          <p><%= lesson.description.truncate(200) %></p>
+          <p>From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
           <%= link_to "See more", lesson_path(lesson), class:"btn btn-success"  %>
         </div>
       </div>

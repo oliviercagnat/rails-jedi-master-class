@@ -17,6 +17,7 @@
           <p class="card-text"><%= lesson.quick_description %></p>
           <p class="card-text">From <%= lesson.start_at %> (<%= lesson.start_at.strftime("%A") %>) to <%= lesson.end_at %> (<%= lesson.end_at.strftime("%A") %>) </p>
           <%= link_to "See more", lesson_path(lesson), class:"btn btn-light"  %>
+
         </div>
       </div>
     <% end  %>
