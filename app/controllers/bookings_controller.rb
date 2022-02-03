@@ -38,8 +38,11 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(status: params["booking"]["status"])
     authorize @booking
+    @booking.update(status: params["booking"]["status"])
+    flash[:notice] = @booking.confirmed? ? "Lesson Confirmed!!" : "Lesson Denied"
+    redirect_to lessons_path
+    #flash[:notice] = "Lesson Confirmed" || "Lesson Denied"
   end
 
   private
