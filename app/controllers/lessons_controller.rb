@@ -2,9 +2,20 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: %i[show edit update destroy]
 
   def index
-    @lessons = policy_scope(Lesson)
-    @jedi_lessons = policy_scope(Lesson).where(user_id: current_user.id)
-    @current_user = current_user
+    if params[:query].present?
+      sql_query = " \
+        lessons.skill_name ILIKE :query \
+        OR users.name ILIKE :query \
+        OR users.side ILIKE :query \
+      "
+      @lessons = policy_scope(Lesson.joins(:user).where(sql_query, query: "%#{params[:query]}%"))
+      @jedi_lessons = policy_scope(Lesson).where(user_id: current_user.id)
+      @current_user = current_user
+    else
+      @lessons = policy_scope(Lesson)
+      @jedi_lessons = policy_scope(Lesson).where(user_id: current_user.id)
+      @current_user = current_user
+    end
   end
 
   def new
