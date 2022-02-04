@@ -18,7 +18,7 @@
     <%= f.input :name,
                 required: true %>
     <%= f.collection_radio_buttons :status, [["Jedi", 'Jedi'], ["Padawan", 'Padawan']], :first, :last  %> <br>
-    <%= f.collection_radio_buttons :side, [["Light", 'Light'], ["False", 'Dark']], :first, :last  %>,
+    <%= f.collection_radio_buttons :side, [["Light", 'Light'], ["Dark", 'Dark']], :first, :last  %>,
     <%= f.input :avatar, as: :file %>
   </div>
 
