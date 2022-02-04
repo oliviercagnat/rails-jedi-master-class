@@ -11,8 +11,7 @@
         <%= link_to "Log out", destroy_user_session_path, class: "btn-outline-light nav-link", method: "delete" %>
       </div>
     </div>
-      <form class="form-inline d-flex">
-        <%= form_tag lessons_path, method: :get do %>
+        <%= form_tag lessons_path, class: "form-inline d-flex", method: :get do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control mr-sm-2",
@@ -20,6 +19,5 @@
           %>
           <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
         <% end %>
-      </form>
   </div>
 </nav>
