@@ -1,10 +1,10 @@
 
 <div class="container w-auto">
-  <div class="card mb-3 h-25">
+  <div class="card my-3 h-25">
     <% if  @lesson.skill_picture.attached? %>
-      <%= cl_image_tag @lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
+      <%= cl_image_tag @lesson.skill_picture.key, class: "card-img" %>
     <% else %>
-      <%= image_tag "banner.jpg", class: "w-100" %>
+      <%= image_tag "banner.jpg", class: "w-100 card-img" %>
     <% end %>
     <div class="card-body">
       <h1 class="card-title">You booked <%= @lesson.skill_name %>

@@ -38,9 +38,9 @@
         <div class="row">
           <div class="col-md-4">
             <% if booking.lesson.skill_picture.attached? %>
-              <%= cl_image_tag booking.lesson.skill_picture.key, height: 300, width: 450, crop: :fit, class: "rounded mx-auto d-block" %>
+              <%= cl_image_tag booking.lesson.skill_picture.key, class: "card-img" %>
             <% else %>
-              <%= image_tag "banner.jpg", class: "w-100" %>
+              <%= image_tag "banner.jpg", class: "w-100 card-img" %>
             <% end %>
           </div>
           <div class="col-md-8">
