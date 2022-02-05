@@ -20,9 +20,9 @@
   <div class="d-flex">
   <% if current_user.status == "Padawan" %>
     <h2 class="mt-4">Our next classes</h2>
-    <%= link_to "See all lessons", lessons_path, class:"btn btn-primary m-4" %>
+    <%= link_to "See all lessons", lessons_path, class: "btn-general", style:"border: none;" %>
   <% else %>
-    <%= link_to "All your lessons", lessons_path(current_user), class:"btn btn-primary m-4"  %>
+    <%= link_to "All your lessons", lessons_path(current_user), class: "btn-general"  %>
   <% end %>
   </div>
 
