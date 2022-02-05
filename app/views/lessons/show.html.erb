@@ -26,7 +26,9 @@
           <a class="btn-booking btn-general">Book now</a>
           <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "hidden actual-link" %>
         <%  end %>
+
       <%= audio_tag "saber.mp3", class:"sound" %>
+
   <% elsif current_user.status == "Jedi" %>
     <div class="booking-actions">
       <h1><%= @lesson.skill_name %></h1>

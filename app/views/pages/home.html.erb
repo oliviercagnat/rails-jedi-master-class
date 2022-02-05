@@ -31,7 +31,7 @@
     <% @lessons.each do |lesson| %>
       <div class="lesson-card">
         <% if lesson.skill_picture.attached? %>
-          <%= cl_image_tag lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
+          <%= cl_image_tag lesson.skill_picture.key, height: 200, width: 317, crop: :fit, class: "img-fluid rounded pt-1" %>
         <% else %>
           <%= image_tag "banner.jpg", class: "w-100" %>
         <% end %>
