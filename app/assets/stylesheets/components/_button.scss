@@ -1,7 +1,8 @@
 .btn-general {
-  font-family: 'Nothing You Could Do', cursive; // imported in _typography.scss partial
+  font-family: 'Rowdies', cursive; // imported in _typography.scss partial
   color: #fff;
   font-size: 1.5rem;
+  letter-spacing: 1.5px;
   cursor: pointer; //change the pointer to a hand
   position: relative; // to its original position
   // font-weight: bold;
@@ -12,6 +13,13 @@
   transition: 0.5s ease;
 
   // neon
+  box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #fff,
+              0 0 0.8rem #fff,
+              0 0 2.8rem #fff,
+              inset 0 0 1.3rem #fff;
+
   text-shadow: //takes 4 values x, y (of the shadow), size of blur radius, color;
     0 0 4px #fff,
     0 0 11px #fff,

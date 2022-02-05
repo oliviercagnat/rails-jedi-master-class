@@ -1,11 +1,13 @@
 <div class ="container">
   <% if current_user.status == "Padawan" %>
+    <div class="text-light">
       <h1>Through knowledge you gain power.</h1>
       <% if params[:query].present? %>
       <h2>Lessons matching your research: <%= @lessons.count %></h2>
       <% else %>
       <h2>All our <%= Lesson.count %> lessons</h2>
       <% end %>
+    </div>
 
     <div class="row justify-content-around">
 
@@ -32,10 +34,10 @@
     <% end  %>
     </div>
   <% else %>
-      <h1>The force is with you <%= current_user.name %>.</h1>
-      <h2>All your <%= @jedi_lessons.count %> lessons</h2>
+      <h1 class="text-white">The force is with you <%= current_user.name %>.</h1>
+      <h2 class="text-white">All your <%= @jedi_lessons.count %> lessons</h2>
       <% if policy(Lesson).create? %>
-        <%= link_to "Create new lesson",  new_lesson_path, class: "btn btn-primary" %>
+        <%= link_to "Create new lesson",  new_lesson_path, class: "btn btn-general mt-3" %>
       <%  end %>
     <div class="row justify-content-around">
     <% @jedi_lessons.each do |lesson| %>
