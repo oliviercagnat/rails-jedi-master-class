@@ -12,7 +12,7 @@
   align-items: center;
   word-wrap: break-word;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid transparent;
   border-radius: 16px;
   margin-bottom: 0.5rem;
   margin-left: 16px;
@@ -21,17 +21,19 @@
 
 
   .card-img {
-    height: 25wh;
+    height: 130px;
     overflow: hidden;
-    margin: 0;
+    margin: 8px;
     border-radius: 16px;
-    margin-bottom: 8px;
-    width: fit-content;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
   .jedi{
     background-color: #fff;
+    border: 0.2rem solid #07cf18;
     box-shadow: 0 0 .2rem #07cf18,
               0 0 .2rem #07cf18,
               0 0 2rem #07cf18,
@@ -43,6 +45,7 @@
   .sith{
     background-color: black;
     color: white;
+    border: 0.2rem solid #a80404;
     box-shadow: 0 0 .2rem #a80404,
               0 0 .2rem #a80404,
               0 0 2rem #a80404,
@@ -50,5 +53,3 @@
               0 0 2.8rem #a80404,
               inset 0 0 1.3rem #a80404;
   }
-
-

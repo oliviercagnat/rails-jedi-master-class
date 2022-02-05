@@ -29,14 +29,14 @@
   </div>
 
 
-  <div class="lessons">
+  <div class="row justify-content-around lessons">
     <% @lessons.each do |lesson| %>
-      <div class="lesson-card my-3">
-        <% if lesson.skill_picture.attached? %>
-          <%= cl_image_tag lesson.skill_picture.key, height: 200, width: 317, crop: :fit, class: "img-fluid rounded pt-1" %>
-        <% else %>
-          <%= image_tag "banner.jpg", class: "w-100" %>
-        <% end %>
+      <div class="lesson-card m-4">
+          <% if lesson.skill_picture.attached? %>
+            <%= cl_image_tag lesson.skill_picture.key, class: "card-img" %>
+          <% else %>
+            <%= image_tag "banner.jpg", class: "w-100 card-img" %>
+          <% end %>
 
         <div class="p-3">
           <h5><%= lesson.skill_name %></h5>
