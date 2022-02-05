@@ -31,12 +31,13 @@
 
   <div class="row justify-content-around lessons">
     <% @lessons.each do |lesson| %>
-      <div class="lesson-card m-4">
-          <% if lesson.skill_picture.attached? %>
-            <%= cl_image_tag lesson.skill_picture.key, class: "card-img" %>
-          <% else %>
-            <%= image_tag "banner.jpg", class: "w-100 card-img" %>
-          <% end %>
+      <div class="lesson-card <%= current_user&.side&.downcase %> my-3">
+        <% if lesson.skill_picture.attached? %>
+          <%= cl_image_tag lesson.skill_picture.key, class: "card-img" %>
+        <% else %>
+          <%= image_tag "banner.jpg", class: "w-100 card-img" %>
+        <% end %>
+
 
         <div class="p-3">
           <h5><%= lesson.skill_name %></h5>
@@ -49,4 +50,3 @@
   </div>
 </div>
 
-<script type="text/javascript" src="/javascripts/lib/home_cards_colors.js" charset="utf-8"></script>
