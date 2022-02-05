@@ -16,7 +16,7 @@
       <div class="mt-1">
 
         <% if lesson.skill_picture.attached? %>
-          <%= cl_image_tag lesson.skill_picture.key, height: 210, width: 280, crop: :fit, class: "img-fluid rounded"%>
+          <%= cl_image_tag lesson.skill_picture.key, class: "card-img"%>
         <% else %>
           <%= image_tag "banner.jpg", class: "w-100" %>
         <% end %>
