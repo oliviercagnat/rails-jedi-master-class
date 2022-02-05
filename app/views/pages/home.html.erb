@@ -22,7 +22,7 @@
     <h2 class="mt-4">Our next classes</h2>
     <%= link_to "See all lessons", lessons_path, class: "btn-general", style:"border: none;" %>
   <% else %>
-    <%= link_to "All your lessons", lessons_path(current_user), class: "btn-general", style:"border: none;"  %>
+    <%= link_to "All your lessons", lessons_path(current_user), class: "btn-general"  %>
   <% end %>
   </div>
 
