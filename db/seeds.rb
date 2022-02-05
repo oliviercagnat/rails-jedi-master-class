@@ -1,11 +1,11 @@
-
+require "open-uri"
 
 puts "Cleaning DB..."
 Booking.destroy_all
 Lesson.destroy_all
 User.destroy_all
 
-puts "Creating lessons..."
+puts "Creating users..."
   User.create!(
     email: "daveflanik@gmail.com",
     password: "123456",
@@ -56,7 +56,7 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
 
 ","Similar to a Force trance, morichro suspended biological functions, including breathing and heart rate. A trained morichro user could turn the technique upon himself, surviving without food, water, or even air for periods of over a year at a time, though it would not protect against vacuum. But unlike a Force trance, it could also be turned on others, making it an effective way of subduing enemies. However, failure to monitor a targeted opponent could render them permanently unconscious or cause them to die of dehydration or starvation."]
 
-10.times do
+
   #skill_name = Faker::Superhero.power
   # r = RestClient::Request.execute(method: :post, url: 'https://api.deepai.org/api/text-generator', timeout: 600,
   #   headers: {'api-key' => '627f84fd-c139-46b4-88f9-7d07de412bad'},
@@ -64,8 +64,7 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
   #       'text' => "#{skill_name} lesson is",
   #   }
   # )
-  # unsplash_url = "http://source.unsplash.com/1600x900/?superpower"
-
+10.times do
   start_at = Date.current + rand(10).days
   lesson = Lesson.create!(
     user: User.all.sample,
@@ -73,9 +72,10 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
     description: skill_description.sample,
     start_at: start_at,
     end_at: start_at + rand(1..3).days,
-    price: rand(20_000..40_000),
-    # skill_picture: "#{unsplash_url}"
+    price: rand(20_000..40_000)
   )
+  skill_image = URI.open("http://source.unsplash.com/collection/9860299/1000x500")
+  lesson.skill_picture.attach(io: skill_image, filename: "picture")
   puts "Lesson #{lesson.id} is created"
 end
 puts "Finished!"

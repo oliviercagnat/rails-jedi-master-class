@@ -23,6 +23,8 @@
         <% if policy(Booking).create? %>
           <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "btn btn-primary" %>
         <%  end %>
+
+
   <% elsif current_user.status == "Jedi" %>
     <div class="booking-actions">
       <h1><%= @lesson.skill_name %></h1>
