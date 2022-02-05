@@ -12,8 +12,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body data-side="<%= current_user.side if user_signed_in? %>">
+
     <%= render "layouts/navbar" %>
+
 
     <%= render "shared/flashes" %>
     <%= render "layouts/background" %>
