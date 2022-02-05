@@ -21,15 +21,17 @@
   <% if current_user.status == "Padawan" %>
     <h2 class="m-4 text-light text-justify">Our next classes</h2>
     <%= link_to "See all lessons", lessons_path, class:"btn btn-primary m-4" %>
+
+
   <% else %>
-    <%= link_to "All your lessons", lessons_path(current_user), class:"btn btn-primary m-4"  %>
+    <%= link_to "All your lessons", lessons_path(current_user), class: "btn-general"  %>
   <% end %>
   </div>
 
 
   <div class="lessons">
     <% @lessons.each do |lesson| %>
-      <div class="lesson-card">
+      <div class="lesson-card my-3">
         <% if lesson.skill_picture.attached? %>
           <%= cl_image_tag lesson.skill_picture.key, height: 200, width: 317, crop: :fit, class: "img-fluid rounded pt-1" %>
         <% else %>
