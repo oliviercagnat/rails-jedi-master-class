@@ -32,7 +32,7 @@
       <h1 class="mt-2"><%= @lesson.skill_name %></h1>
         <%= @lesson.description %>
         <h3 class="mt-2">Pending Bookings</h3>
-    <div class="booking-actions">
+    <div class="booking-actions mb-4">
       <% @lesson.bookings.each do |booking| %>
         <% if booking.pending? %>
           <%= simple_form_for booking do |f| %>
@@ -59,11 +59,11 @@
         <% end %>
       <% end %>
     </div>
-  <% end %>
-</div>
        <div class="col text-center pt-4 pb-2">
           <a href=<%= lessons_path  %> class="btn btn-general">Return to my lessons</a>
         </div>
+  <% end %>
+</div>
 </div>
 
 
