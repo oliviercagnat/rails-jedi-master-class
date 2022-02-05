@@ -28,7 +28,11 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to lesson_path(@booking.lesson)
+    if current_user.status == "Jedi"
+      redirect_to lesson_path(@booking.lesson)
+    else
+      redirect_to pages_user_profile_path(current_user)
+    end
     booking_policy_authorize
   end
 
