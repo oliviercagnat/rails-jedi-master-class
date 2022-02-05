@@ -12,18 +12,22 @@
       <% if @lesson.user.status == "Jedi" %>
       <h3 class=mt-3>Taught by: <%= @lesson.user.name %>, <%= @lesson.user.side %> side</h3>
       <% end %>
+
       <p>
         <%= @lesson.description %>
       </p>
+
       <div class="flex">
         <p>Price: <%= @lesson.price %> Imperial Credits</p>
         <p>Start <i class="fa fa-calendar"></i> <%= @lesson.start_at %></p>
         <p>End <i class="fa fa-calendar"></i> <%= @lesson.end_at %></p>
         <%= link_to "Return", lessons_path, class: "btn btn-primary"  %>
         <% if policy(Booking).create? %>
-          <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "btn btn-primary" %>
+          <a class="btn-booking btn-general">Book now</a>
+          <%= link_to "Book now!", lesson_bookings_path(lesson_id: @lesson.id), method: "post", class: "hidden actual-link" %>
         <%  end %>
 
+      <%= audio_tag "saber.mp3", class:"sound" %>
 
   <% elsif current_user.status == "Jedi" %>
     <div class="booking-actions">
@@ -41,7 +45,7 @@
           <% if policy(Booking).update? %>
             <%= f.input :status, as: :hidden, input_html: { value: 'denied'} %>
             <%= f.submit "Deny #{booking.user.name}", method: :patch, class: 'btn btn-primary' %>
-         <% end %>
+        <% end %>
         <% end %>
         <% else %>
         <ul class= "p-0 mt-2">
