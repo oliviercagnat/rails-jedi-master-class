@@ -6,6 +6,7 @@
 }
 
 .lesson-card {
+  font-family: 'Rowdies', cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +17,7 @@
   margin-bottom: 0.5rem;
   margin-left: 16px;
   max-width: 25%;
+
 
 
   .card-img {
@@ -30,7 +32,6 @@
 
   .jedi{
     background-color: #fff;
-    border: 0.2rem solid rgb(0, 0, 0);
     box-shadow: 0 0 .2rem #07cf18,
               0 0 .2rem #07cf18,
               0 0 2rem #07cf18,
@@ -42,7 +43,6 @@
   .sith{
     background-color: black;
     color: white;
-    border: 0.2rem solid rgb(0, 0, 0);
     box-shadow: 0 0 .2rem #a80404,
               0 0 .2rem #a80404,
               0 0 2rem #a80404,
