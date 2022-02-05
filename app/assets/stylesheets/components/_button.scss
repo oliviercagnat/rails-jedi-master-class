@@ -1,0 +1,65 @@
+.btn-general {
+  font-family: 'Nothing You Could Do', cursive; // imported in _typography.scss partial
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer; //change the pointer to a hand
+  position: relative; // to its original position
+  // font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 12px;
+  border: 2px solid;
+  // mix-blend-mode: difference; //defines how an element’s content should blend with its background. difference: subtracts the darker of the two colors from the lightest color.
+  transition: 0.5s ease;
+  text-decoration: none;
+  background-color: rgba(59, 56, 56, 0.164);
+
+  // neon
+  text-shadow: //takes 4 values x, y (of the shadow), size of blur radius, color;
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 238, 0),
+    0 0 82px rgb(255, 238, 0),
+    0 0 92px rgb(255, 238, 0),
+    0 0 102px rgb(255, 238, 0),
+    0 0 151px rgb(255, 238, 0);
+
+  &::before {
+  content:"";
+  position: absolute; // to the parent
+  z-index: 1;
+  top: 0px;
+  left: 0;
+	border-radius: 10px;
+	width: 55px;
+  height: 50px;
+	background-color: transparent;
+  opacity: 0.5;
+  transition: 0.2s ease;
+  }
+
+  a {
+    animation: flicker 1.5s infinite alternate;
+  }
+
+
+  &:hover::before {
+  background-color: yellow;
+	width: 100%;
+  }
+
+  &.neon::before{
+  background-color: #66ff00;
+  width: 100%;
+}
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.neon.sith{
+  background-color: #FF3131;
+}
