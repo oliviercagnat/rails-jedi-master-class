@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.update(status: params["booking"]["status"])
     flash[:notice] = @booking.confirmed? ? "#{@booking.user.name}'s lesson Confirmed!!" : "#{@booking.user.name}'s lesson Denied"
-    redirect_to lessons_path
+    redirect_to lesson_path(@booking.lesson)
     #flash[:notice] = "Lesson Confirmed" || "Lesson Denied"
   end
 
