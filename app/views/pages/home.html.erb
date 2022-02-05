@@ -16,12 +16,13 @@
   </div>
 </div>
 
-
-<div class="container-fluid">
-  <div class="d-flex justify-content-between my-3">
+<div class="container-fluid text-center">
+  <div class="d-flex ml-5">
   <% if current_user.status == "Padawan" %>
-    <h2 class="mt-4">Our next classes</h2>
-    <%= link_to "See all lessons", lessons_path, class: "btn-general" %>
+    <h2 class="m-4 text-light text-justify">Our next classes</h2>
+    <%= link_to "See all lessons", lessons_path, class:"btn btn-primary m-4" %>
+
+
   <% else %>
     <%= link_to "All your lessons", lessons_path(current_user), class: "btn-general"  %>
   <% end %>

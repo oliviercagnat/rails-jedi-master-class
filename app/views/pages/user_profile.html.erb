@@ -1,7 +1,7 @@
 <div class="container-fluid">
-  <div class="card">
+  <div class="card mt-4">
     <div class="text-center">
-      <h1 class="my-3">Your informations</h1>
+      <h1 class="my-3 border-bottom pb-3">Your information</h1>
     </div>
     <div class="card-body d-flex flex-direction-column justify-content-around">
       <div class="text-center">
@@ -19,28 +19,26 @@
       </div>
 
       <div>
-        <h3 class="card-title">About me</h3>
+        <h3 class="card-title border-y">About me</h3>
         <p class="card-text"><%= current_user.description %></p>
       </div>
 
       <div>
         <h3 class="card-title">Completed</h3>
-        <p class="card-text">Write something about you</p>
+        <p class="card-text">You have completed 4 classes already. <br>Keep training to become the ultimate master.  </p>
       </div>
 
     </div>
-      <%= link_to "Edit", edit_user_registration_path, class:'btn btn-light w-3' %>
+      <%= link_to "Edit", edit_user_registration_path, class:'btn btn-success w-3' %>
 
   </div>
-
-  <div>
-    <h1 class="mt-3 text-center">Your Bookings</h1>
+    <h1 class="mt-3 text-center text-light">Your Bookings</h1>
     <% current_user.bookings.each do |booking| %>
-      <div class="card mb-3" style="max-width: 100%;">
-        <div class="row mb-3">
+      <div class="card" style="max-width: 100%;">
+        <div class="row">
           <div class="col-md-4">
             <% if booking.lesson.skill_picture.attached? %>
-              <%= cl_image_tag booking.lesson.skill_picture.key, height: 300, width: 450 %>
+              <%= cl_image_tag booking.lesson.skill_picture.key, height: 300, width: 450, crop: :fit, class: "rounded mx-auto d-block" %>
             <% else %>
               <%= image_tag "banner.jpg", class: "w-100" %>
             <% end %>
