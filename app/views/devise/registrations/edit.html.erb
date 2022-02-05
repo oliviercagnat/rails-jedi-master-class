@@ -8,6 +8,7 @@
     <%= f.input :name %>
     <%= f.input :avatar,
                 as: :file %>
+    <%= f.input :description %>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
