@@ -74,7 +74,7 @@ Mastery of this skill came hand-in-hand with mastery over lightsaber combat, as 
     end_at: start_at + rand(1..3).days,
     price: rand(20_000..40_000)
   )
-  skill_image = URI.open("http://source.unsplash.com/collection/9860299/1000x500")
+  skill_image = URI.open("http://source.unsplash.com/collection/9860299/1000x500/?#{(rand(1000)}")
   lesson.skill_picture.attach(io: skill_image, filename: "picture")
   puts "Lesson #{lesson.id} is created"
 end
