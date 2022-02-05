@@ -10,8 +10,8 @@
     <div class="row justify-content-around">
 
     <% @lessons.each do |lesson| %>
-      <div class="lesson-card">
-      <div class="mt-3">
+      <div class="lesson-card m-4">
+      <div class="mt-1">
 
         <% if lesson.skill_picture.attached? %>
           <%= cl_image_tag lesson.skill_picture.key, height: 210, width: 280, crop: :fit, class: "img-fluid rounded"%>
