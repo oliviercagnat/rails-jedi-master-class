@@ -1,11 +1,13 @@
 <div class ="container">
   <% if current_user.status == "Padawan" %>
+    <div class="text-light">
       <h1>Through knowledge you gain power.</h1>
       <% if params[:query].present? %>
       <h2>Lessons matching your research: <%= @lessons.count %></h2>
       <% else %>
       <h2>All our <%= Lesson.count %> lessons</h2>
       <% end %>
+    </div>
 
     <div class="row justify-content-around">
 
