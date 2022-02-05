@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email status side avatar name])
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[email status side avatar name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email status side avatar name description])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[email status side avatar name description])
   end
 end

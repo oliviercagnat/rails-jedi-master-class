@@ -20,7 +20,7 @@
 
       <div>
         <h3 class="card-title">About me</h3>
-        <p class="card-text">Write something about you</p>
+        <p class="card-text"><%= current_user.description %></p>
       </div>
 
       <div>
@@ -40,7 +40,7 @@
         <div class="row mb-3">
           <div class="col-md-4">
             <% if booking.lesson.skill_picture.attached? %>
-              <%= cl_image_tag booking.lesson.skill_picture.key, height: 100, width: 150, crop: :fill %>
+              <%= cl_image_tag booking.lesson.skill_picture.key, height: 300, width: 450 %>
             <% else %>
               <%= image_tag "banner.jpg", class: "w-100" %>
             <% end %>
@@ -59,6 +59,7 @@
                 <% end %>
 
               <p class="card-text">Your class is <%=booking.status%></p>
+              <%= link_to "Delete class", booking_path(booking), method: :delete, class: "btn btn-danger"  %>
             </div>
           </div>
         </div>

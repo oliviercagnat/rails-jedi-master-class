@@ -28,7 +28,11 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to lesson_path(@booking.lesson)
+    if current_user.status == "Jedi"
+      redirect_to lesson_path(@booking.lesson)
+    else
+      redirect_to pages_user_profile_path(current_user)
+    end
     booking_policy_authorize
   end
 
@@ -41,7 +45,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(status: params["booking"]["status"])
-    flash[:notice] = @booking.confirmed? ? "Lesson Confirmed!!" : "Lesson Denied"
+    flash[:notice] = @booking.confirmed? ? "#{@booking.user.name}'s lesson Confirmed!!" : "#{@booking.user.name}'s lesson Denied"
     redirect_to lessons_path
     #flash[:notice] = "Lesson Confirmed" || "Lesson Denied"
   end
