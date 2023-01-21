@@ -1,0 +1,21 @@
+databases:
+  - name: jedi_masterclass
+    databaseName: jedi
+    user: jedi_masterclass
+    plan: free
+    ipAllowList: []
+
+services:
+  - type: web
+    name: jedi_masterclass
+    env: ruby
+    plan: free
+    buildCommand: "./render-build.sh"
+    startCommand: "bundle exec rails s"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: jedi_masterclass
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
