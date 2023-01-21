@@ -31,25 +31,29 @@
   }
 }
 
-  .light{
-    background-color: #fff;
-    border: 0.2rem solid #07cf18;
-    box-shadow: 0 0 .2rem #07cf18,
-              0 0 .2rem #07cf18,
-              0 0 2rem #07cf18,
-              0 0 0.8rem #07cf18,
-              0 0 2.8rem #07cf18,
-              inset 0 0 1.3rem #07cf18;
-  }
+.light{
+  background-color: #fff;
+  border: 0.2rem solid #07cf18;
+  box-shadow: 0 0 .2rem #07cf18,
+            0 0 .2rem #07cf18,
+            0 0 2rem #07cf18,
+            0 0 0.8rem #07cf18,
+            0 0 2.8rem #07cf18,
+            inset 0 0 1.3rem #07cf18;
+}
 
-  .dark{
-    background-color: black;
-    color: white;
-    border: 0.2rem solid #a80404;
-    box-shadow: 0 0 .2rem #a80404,
-              0 0 .2rem #a80404,
-              0 0 2rem #a80404,
-              0 0 0.8rem #a80404,
-              0 0 2.8rem #a80404,
-              inset 0 0 1.3rem #a80404;
-  }
+.dark{
+  background-color: black;
+  color: white;
+  border: 0.2rem solid #a80404;
+  box-shadow: 0 0 .2rem #a80404,
+            0 0 .2rem #a80404,
+            0 0 2rem #a80404,
+            0 0 0.8rem #a80404,
+            0 0 2.8rem #a80404,
+            inset 0 0 1.3rem #a80404;
+}
+
+.card-body{
+  padding: 1rem;
+}
