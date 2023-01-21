@@ -5,7 +5,7 @@
       <% if params[:query].present? %>
       <h2>Lessons matching your research: <%= @lessons.count %></h2>
       <% else %>
-      <h2>All our <%= Lesson.count %> lessons</h2>
+      <h2>All our <%= Lesson.count %> available lessons</h2>
       <% end %>
     </div>
 
@@ -13,14 +13,14 @@
 
     <% @lessons.each do |lesson| %>
       <div class="lesson-card <%= current_user&.side&.downcase %>  m-4">
-      <div class="mt-1">
+
 
         <% if lesson.skill_picture.attached? %>
           <%= cl_image_tag lesson.skill_picture.key, class: "card-img"%>
         <% else %>
           <%= image_tag "banner.jpg", class: "w-100" %>
         <% end %>
-      </div>
+
 
         <div class="card-body">
           <h5 class="card-title"><%= lesson.skill_name %></h5>
