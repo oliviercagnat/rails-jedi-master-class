@@ -29,7 +29,7 @@
   </div>
 
 
-  <div class="row justify-content-around lessons">
+  <div class="row lessons">
     <% @lessons.each do |lesson| %>
       <div class="lesson-card <%= current_user&.side&.downcase %> my-3">
         <% if lesson.skill_picture.attached? %>
