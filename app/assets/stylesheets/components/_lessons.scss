@@ -11,3 +11,11 @@
 .text-light {
   padding-left: 3rem;
 }
+
+.lessons{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5rem;
+  padding: 3rem;
+}
+
